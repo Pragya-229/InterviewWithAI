@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: ["http://localhost:5173", "https://interviewwithai-ynx9.onrender.com"],
+    origin: ["http://localhost:5173", "https://interviewwithai-ynx9.onrender.com", "https://interview-with-ai-eight.vercel.app"],
     credentials: true
 }))
 
