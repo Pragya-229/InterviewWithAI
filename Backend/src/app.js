@@ -7,6 +7,7 @@ const app = express()
 const defaultAllowedOrigins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://interview-with-ai-theta.vercel.app",
     "https://interviewai-brn4.onrender.com"
 ]
 
