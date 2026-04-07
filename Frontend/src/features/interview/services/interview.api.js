@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://interviewai-brn4.onrender.com"
+
 const api = axios.create({
-    baseURL: "https://interviewai-brn4.onrender.com",
+    baseURL: API_BASE_URL,
     withCredentials: true,
 })
 

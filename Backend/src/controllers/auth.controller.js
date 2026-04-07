@@ -9,7 +9,7 @@ function getAuthCookieOptions() {
     return {
         httpOnly: true,
         secure: isProduction,
-        sameSite: isProduction ? "None" : "Lax"
+        sameSite: "None"
     }
 }
 
@@ -64,6 +64,7 @@ async function registerUserController(req, res) {
 
     res.status(201).json({
         message: "User registered successfully",
+        token,
         user: {
             id: user._id,
             username: user.username,
@@ -108,6 +109,7 @@ async function loginUserController(req, res) {
     res.cookie("token", token, getAuthCookieSetOptions())
     res.status(200).json({
         message: "User loggedIn successfully.",
+        token,
         user: {
             id: user._id,
             username: user.username,

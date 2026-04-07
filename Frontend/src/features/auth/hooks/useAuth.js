@@ -15,8 +15,9 @@ export const useAuth = () => {
         try {
             const data = await login({ email, password })
             setUser(data?.user ?? null)
+            return data?.user ?? null
         } catch (err) {
-
+            throw err
         } finally {
             setLoading(false)
         }
@@ -50,12 +51,12 @@ export const useAuth = () => {
 
         const getAndSetUser = async () => {
             try {
-
                 const data = await getMe()
                 setUser(data?.user ?? null)
             } catch (err) {
                 if (err?.response?.status === 401) {
                     setUser(null)
+                    localStorage.removeItem("authToken")
                 }
             } finally {
                 setLoading(false)
